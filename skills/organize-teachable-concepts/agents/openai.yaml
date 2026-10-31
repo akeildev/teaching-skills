@@ -1,0 +1,4 @@
+interface:
+  display_name: "Organize Teachable Concepts"
+  short_description: "Preserve evidence while organizing teaching detail"
+  default_prompt: "Use $organize-teachable-concepts to organize this source or concept inventory into families, teaching units, components, and supporting material without losing its records or evidence."

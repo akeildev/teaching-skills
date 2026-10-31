@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Teaching Modes"
+  short_description: "Choose mode combinations for each teaching unit"
+  default_prompt: "Use $plan-teaching-modes to design how to teach these units for my learner and brief, showing families, units, and the combination of modes for each unit."
