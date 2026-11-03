@@ -1,52 +1,51 @@
 ---
 name: plan-teaching-modes
-description: Design how to teach existing teaching units for a specific learner and course brief, choosing a combination of complementary modes per unit and composing them into a course with exercises and animated-scene beats paired with narration. Use when teaching units exist and the question is how to teach them. For a raw source, run organize-teachable-concepts first.
+description: Chooses how to teach the units of a teaching outline for a specific learner and brief - the combination of teaching modes for each unit - and arranges the units into timed lessons. Use when an outline from organize-teachable-concepts exists and the question is how to teach it. For a raw source, run organize-teachable-concepts first.
 ---
 
 # Plan teaching modes
 
-Turn teaching units into a course plan someone could teach from. The view the user scans is **families → teaching units → the combination of modes chosen for each unit**. Beneath it sit the components, supporting material, exercises, source evidence, and the reasons for consequential choices, so the user can see what the learner will see and do, beyond mode names.
+Decide which teaching modes each unit gets, give each mode its job, and arrange the units into lessons. The plan stops there: the wording, examples, questions, pictures and scenes belong to whoever builds the lesson (for slides, `design-teaching-slides`).
 
-Read [references/mode-catalog.md](references/mode-catalog.md) before choosing modes.
+```
+- [ ] 1. Read the inputs and the mode catalog
+- [ ] 2. Choose modes for each unit
+- [ ] 3. Arrange the course
+- [ ] 4. Save and check until it passes
+- [ ] 5. Report
+```
 
-## Input and boundary
+## 1. Read the inputs and the mode catalog
 
-Work from the supplied units, targets, success checks, components, supporting material, exercises, evidence, and readiness, plus the learner, goal, depth, tone, time, and delivery constraints. Use stated assumptions for optional information that is absent. If only a raw source exists, run `organize-teachable-concepts` first.
+Read the outline from `organize-teachable-concepts` (`overlay.json` and `inventory.json`, readable as `outline.md`), including its `main_point`, and the learner's brief: who they are, their goal, depth, tone, time and delivery. State an assumption wherever the brief is silent. Read [the mode catalog](references/mode-catalog.md).
 
-The hierarchy, records, and evidence stay as supplied; propose changes separately with reasons. Missing content stays a gap, since a mode cannot supply absent evidence: where a learner needs a term the source leaves undefined, give a minimal gloss labeled as authored, which leaves the gap open. Research prerequisites only on request. Planning produces no rendered media, runs no source exercises, and makes no claims about learning outcomes.
+Keep the outline as supplied and suggest changes separately, with reasons. A gap stays a gap: a mode cannot supply missing evidence.
 
-## Design each unit
+## 2. Choose modes for each unit
 
-The unit is the planning boundary, and the course supplies context. Families organize navigation. Lessons package a teachable sequence and may hold several units. None of these labels carries a set number of modes.
+For each unit, work out what must become understandable or doable and where this learner will likely go wrong. Choose the modes that get them there, usually a few that complement each other. Give each mode one line naming its teaching job: what it makes the learner understand or do about the unit's key idea. The lesson builder decides the picture and the wording. Name the components each mode explains, practises or checks, and cover every component or leave it out with a reason.
 
-For each unit:
+Each unit includes at least one mode where the learner answers, practises or explains, pitched to their level and goal. Source exercises stay attached by ID. A provisional unit still gets modes, plus a question about it.
 
-1. Work out what must become understandable or doable, and where this learner will likely go wrong, from the target, components, likely misunderstandings, source support, learner, and neighboring units.
-2. Picture the experiences that would get them there, then choose the modes that provide those experiences. Weigh a real alternative when the choice matters, and record it in a line.
-3. Give each chosen mode a concrete job: what it adds for this unit that the others do not.
-4. Write the teaching itself: the explanation, the example worked through, the question and its feedback, the scene. A teacher holding only this plan and the source should be able to teach from it.
+## 3. Arrange the course
 
-Plan provisional units too, with hedges that match their open reviews, and add each to the questions for the user.
+Build the course around the outline's main point: the opening raises it, every unit's modes serve it, and the course closes with the learner saying it in their own words. Copy it into the plan as `main_point`.
 
-A coherent combination of complementary modes is the default. When one mode is genuinely sufficient, state the instructional reason. Length, order, and repetition follow from the unit and the brief, and an engaging brief shapes the whole experience, which may or may not involve animation.
+Put the units into lessons in teaching order, with rough minutes when the brief sets a time limit. A lesson can also hold course-level items, such as an opener or a closing explain-back, each with its own modes. Units taught together sit next to each other. When time runs short, leave out whole units with a one-line reason each.
 
-When a section does several jobs, list each mode with its contribution, so the combination stays visible. Keep functions distinct: renaming the same activity adds no second mode. Mode is an instructional purpose; medium (whiteboard, audio, animation, screen) is a separate dimension.
+Then read the units side by side and vary any sequence that repeats out of habit.
 
-Hold every unit to these standards:
+## 4. Save and check until it passes
 
-- **Coverage:** each component is explained, practiced, or assessed in actual content, and the plan says which. A credit is earned when a reader can point to the sentences or the question that do it. Records that are only context are marked as context. Important qualifications appear where the claim is taught.
-- **Challenge:** the learner does enough real work to reach the success check, at a level matched to their readiness and goal. When they may be unable to run a source exercise, the success check stays reachable through authored activities.
-- **Exercises:** source exercises stay attached with their IDs and are marked not executed unless run. Each authored activity has a concrete prompt, what success looks like, and feedback for likely errors.
-- **Honesty:** authored examples, invented illustrations, inferences beyond what the source states, and metaphor limits are labeled. An illustration never becomes source evidence.
+Save `plan.json` in [the saved format](references/plan-format.md), then run this skill's script:
 
-## Compose the course
+```bash
+python3 scripts/plan_tool.py check plan.json --hierarchy overlay.json --inventory inventory.json
+python3 scripts/plan_tool.py render plan.json --hierarchy overlay.json --inventory inventory.json --out view.md
+```
 
-Compose only after every unit has sufficient teaching on its own. Then connect ideas, reuse useful running examples, introduce objectives where they help, plan transitions and later retrieval, and remove repetition that adds nothing. A shared section can teach several units when each unit's contribution stays explicit. Composition may merge delivery; each unit keeps its full explanations and practice.
+Fix what the check reports and run it again until it passes. Add `--addendum FILE` to both commands when the inventory has an addendum.
 
-Then read the units side by side, as a teacher would. Where one sequence recurs, confirm each instance has its own reason in that unit, and redesign the ones that came from habit. Where a unit feels thin compared with its components, deepen it.
+## 5. Report
 
-## Deliver
-
-Finish every requested unit, or record it as deferred with a reason. End by asking the user about anything ambiguous and every provisional unit, one clear question each, saying what the plan does until they answer. When a mode or format you need does not exist, create it and leave a note suggesting it, with why you needed it and where you used it. Repeated suggestions are candidates for the catalog. A small plan can be shown inline in the same order: family, unit, combination, what each mode contributes, then activities and scene beats. For a saved or substantial plan, follow [references/plan-format.md](references/plan-format.md); its script checks references and renders the view.
-
-Report planning checks apart from any evidence that learners benefited. A passing reference check shows the plan is connected; only reading the content against targets shows it teaches.
+End your reply with the lessons in order, each unit's modes, the units left out and why, and one question per open issue with what the plan assumes meanwhile.

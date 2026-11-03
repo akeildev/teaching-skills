@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Teaching Slides"
+  short_description: "Build visual lessons from teaching-mode plans"
+  default_prompt: "Use $design-teaching-slides to turn this teaching-mode plan into a rendered, checked slide deck."

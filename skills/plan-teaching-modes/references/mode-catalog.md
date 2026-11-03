@@ -6,7 +6,7 @@ Rules for every mode:
 
 - Any mode can repeat or go unused. If none fits a needed teaching action, name and define a new one, and leave a note suggesting it.
 - Examples, settings, order, length, and creative treatment are yours to choose. The user's brief outranks stylistic habits, including any implied by these descriptions.
-- Everything stays faithful to the source and keeps its qualifications. "Produces" means the content written into the plan.
+- Everything stays faithful to the source and keeps its qualifications. "Produces" means what the finished lesson must contain. The plan names the mode and its job; whoever builds the lesson writes it.
 
 ## Orient and motivate
 
@@ -58,4 +58,4 @@ Rules for every mode:
 
 ## Enact
 
-**Animated scene.** A vivid conceptual situation unfolds through meaningful actions, interactions, changes, or reveals. It may show why an idea matters, establish historical context, demonstrate a mechanism or consequence, or make a distinction memorable enough to replay mentally. Use it when watching something happen teaches more than being told. Characters and plot are optional; narration and clarifying labels are allowed. The scene's action carries the idea, so moving text or chart cards alone belong under Timeline or Model/diagram. Produces the teaching point plus ordered visual beats, each paired with narration, for later animation. Label invented illustrations and metaphor limits. Historical details come from the source. The output is a plan for animation, with no media rendered now.
+**Animated scene.** A vivid conceptual situation unfolds through meaningful actions, interactions, changes, or reveals. It may show why an idea matters, establish historical context, demonstrate a mechanism or consequence, or make a distinction memorable enough to replay mentally. Use it when watching something happen teaches more than being told. Characters and plot are optional; narration and clarifying labels are allowed. The scene's action carries the idea, so moving text or chart cards alone belong under Timeline or Model/diagram. Produces a sequence of moments whose action carries the teaching point, with narration or captions. Label invented illustrations and metaphor limits. Historical details come from the source.
